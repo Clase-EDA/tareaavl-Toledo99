@@ -392,84 +392,83 @@ public class AVL<T extends Comparable <T>>  extends ColaA<T> {
         cad.append("\n");
         String res="";
         ColaA cola=new ColaA(cont);
-        int num=0, ref=1;
         if(raiz!=null){
             cola.agrega(raiz);
-            res=imprimir(cad, cola, num, ref);
+            res=imprimir(cad, cola);
         }
         return res;
     }
 
-    private String imprimir(StringBuilder cad, ColaA cola, int num, int ref){
+    private String imprimir(StringBuilder cad, ColaA cola){
         if(cola.estaVacia()){
             return cad.toString();
         }
-        num+=2;
-        if(num>>1==ref){
-            cad.append("\n");
-            ref=num;
-        }
+        
         NodoAVL<T> actual =(NodoAVL<T>)cola.quita();
         cad.append("∞ "+actual.element).append(" FE:").append(actual.factor+" ");
+        
+        
         if(actual.izq!=null){
             cola.agrega(actual.izq);
         }
+        
         if(actual.der!=null)
             cola.agrega(actual.der);
         
-        return imprimir(cad, cola, num, ref);
+        return imprimir(cad, cola);
     }
     
     public static void main(String args[]){
         
         AVL ar=new AVL();
-        System.out.println(ar.insertar(9));
-        
-        ar.insertar(6);
+        System.out.println(ar.insertar(100));
         System.out.println(ar.imprimir());
-        System.out.println(ar.insertar(7));
+        ar.insertar(300);
         System.out.println(ar.imprimir());
-        ar.insertar(10);
+        System.out.println(ar.insertar(400));
         System.out.println(ar.imprimir());
-        ar.insertar(13);
+        ar.insertar(350);
         System.out.println(ar.imprimir());
-        ar.insertar(100);
+        ar.insertar(375);
         System.out.println(ar.imprimir());
-        ar.insertar(14);
+        ar.insertar(50);
         System.out.println(ar.imprimir());
-        ar.insertar(11);
+        ar.insertar(200);
         System.out.println(ar.imprimir());
-        ar.elimina(7);
+        ar.insertar(360);
         System.out.println(ar.imprimir());
-        ar.elimina(10);
+        ar.insertar(380);
+        System.out.println(ar.imprimir());
+        ar.insertar(500);
         System.out.println(ar.imprimir());
 
         
 
-        ar.insertar(2);
-        ar.elimina(100);
+        ar.insertar(390);
         System.out.println(ar.imprimir());
-        ar.elimina(11);
+        ar.elimina(375);
         System.out.println(ar.imprimir());
-        ar.elimina(13);
+        ar.elimina(50);
         System.out.println(ar.imprimir());
-        
-        System.out.println(ar.elimina(9));
-        
+        ar.elimina(400);
         System.out.println(ar.imprimir());
         
-        System.out.println(ar.elimina(9));
+        System.out.println(ar.elimina(380));
         
         System.out.println(ar.imprimir());
-        System.out.println(ar.buscar(10));
-        
-        System.out.println(ar.elimina(9));
-        
-        System.out.println(ar.imprimir());
-        
-        System.out.println(ar.elimina(6));
-        
-        System.out.println(ar.imprimir());
+//        
+//        System.out.println(ar.elimina(9));
+//        
+//        System.out.println(ar.imprimir());
+//        System.out.println(ar.buscar(10));
+//        
+//        System.out.println(ar.elimina(9));
+//        
+//        System.out.println(ar.imprimir());
+//        
+//        System.out.println(ar.elimina(6));
+//        
+//        System.out.println(ar.imprimir());
         
 
     }
