@@ -389,6 +389,7 @@ public class AVL<T extends Comparable <T>>  extends ColaA<T> {
             
     public String imprimir(){
         StringBuilder cad=new StringBuilder();
+        cad.append("\n");
         String res="";
         ColaA cola=new ColaA(cont);
         if(raiz!=null){
@@ -403,7 +404,7 @@ public class AVL<T extends Comparable <T>>  extends ColaA<T> {
             return cad.toString();
         }
         NodoAVL<T> actual =(NodoAVL<T>)cola.quita();
-        cad.append(actual.element).append(" ");
+        cad.append("∞ "+actual.element).append(" FE:").append(actual.factor+" ");
         if(actual.izq!=null){
             cola.agrega(actual.izq);
         }
@@ -444,7 +445,6 @@ public class AVL<T extends Comparable <T>>  extends ColaA<T> {
         System.out.println(ar.imprimir());
         ar.elimina(11);
         System.out.println(ar.imprimir());
-        System.out.println(ar.raiz.factor);
         ar.elimina(13);
         System.out.println(ar.imprimir());
         
